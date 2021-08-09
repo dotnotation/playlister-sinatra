@@ -1,0 +1,11 @@
+<!--lists all songs and links to each song's show page-->
+<h1>All Songs</h1>
+    <ol>     
+    <% @songs.each do |song| %>
+        <li><a href="/songs/<%= song.slug %>"><%= song.name %></a></li>
+    <% end %>
+    </ol>
+
+<a class="button" href="/artists">Artists</a>
+<a class="button" href="/genres">Genres</a>
+<a class="button" href="/">Home</a>

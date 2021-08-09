@@ -1,0 +1,38 @@
+<!--creates a new song, can create a new artist, or associates that song with an existing artist-->
+<!--submit button value="Create"-->
+<!--redirects to that song's show page-->
+<h2> Create New Song </h2>
+<form action="/songs" method="POST">
+    <label>Name:</label>
+    <input type="text" id="Name" name="song[name]" placeholder="name">
+  
+  <label><h3>Artist:</h3></label>
+    <% Artist.all.each do |artist| %>
+        <input type="checkbox" id="<%= artist.name %>" name="artist[name]" value="<%= artist.id %>">
+        <label><%= artist.name %></label>
+
+    <% end %>
+    
+  <label><h3>Genres:</h3></label>
+    <% Genre.all.each do |genre| %>
+        <input type="checkbox" id="<%= genre.name %>" name="genres[]" value="<%= genre.id %>">
+        <label><%= genre.name %></label>
+
+    <% end %>
+
+  <label><h3>Create New Artist</h3>
+    <label for="Artist Name">Artist Name: </label>
+    <input type="text" id="Artist Name" name="artist[name]">
+
+<label><h3>Create New Genre</h3></label>
+        
+    <label>Name: </label>
+    <input type="text" id="new_genre" name="genre[name]">
+        
+<input type="submit" value="Create">
+</form>
+
+<a class="button" href="/songs">Songs</a>
+<a class="button" href="/artists">Artists</a>
+<a class="button" href="/genres">Genres</a>
+<a class="button" href="/">Home</a>
